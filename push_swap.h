@@ -20,4 +20,7 @@ int	ft_isdigit(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *str);
 size_t	ft_strlen(const char *s);
+int check_dig(int ac,char **av);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	**splitargs(int ac, char **av);
 #endif

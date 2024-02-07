@@ -35,10 +35,16 @@ int main(int ac, char  **av)
 	int i;
 	int j;
 
-	i = 1;
+	i = 0;
 	j = 1;
 	t_list *stack_a;
-	if (check_dup(ac,av) == 0)
+   	av = splitargs(ac,av);
+	while(av[i])
+	{
+		printf("%s\n",av[i]);
+		i++;
+	}
+	if (check_dig(ac,av) == 0)
 		return 0;
 	while (i < ac)
 	{
@@ -51,7 +57,7 @@ int main(int ac, char  **av)
 	{
 		printf("%d\n", stack_a->content);
 		stack_a = stack_a->next;
-	}
+	} 
 	
 	return 0;
 }

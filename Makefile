@@ -2,6 +2,7 @@ NAME = push_swap
 SOURCES = main.c\
 		utils.c\
 		utils1.c\
+		utils2.c\
 		parcing.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
