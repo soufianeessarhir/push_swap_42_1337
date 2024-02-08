@@ -23,9 +23,9 @@ int check_dig(int ac,char **av)
 	while(i < ac)
 	{
 			j = 0;
-		while(av[i][j])
+		while(av[i])
 		{
-			if (ft_isdigit(av[i][j]) == 0)
+			if (ft_isdigit(av[i][j]) == 0 || av[i][0] == '\0')
 				return(0);
 			j++;
 		}

@@ -37,27 +37,28 @@ int main(int ac, char  **av)
 
 	i = 0;
 	j = 1;
-	t_list *stack_a;
+	// t_list *stack_a;
+	if (check_dig(ac,av) == 0)
+		return 0;
    	av = splitargs(ac,av);
 	while(av[i])
 	{
 		printf("%s\n",av[i]);
 		i++;
 	}
-	if (check_dig(ac,av) == 0)
-		return 0;
-	while (i < ac)
-	{
-		
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));
-		i++;
-	}
 	
-	while(stack_a)
-	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
-	} 
+	// while (i < ac)
+	// {
+		
+	// 	ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));
+	// 	i++;
+	// }
+	
+	// while(stack_a)
+	// {
+	// 	printf("%d\n", stack_a->content);
+	// 	stack_a = stack_a->next;
+	// } 
 	
 	return 0;
 }
