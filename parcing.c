@@ -14,18 +14,18 @@ char	**splitargs(int ac, char **av)
 	}
 return (ft_split(str,' '));
 }
-int check_dig(int ac,char **av)
+int check_dig(char **av)
 {
 	int i ;
 	int j ;
 
-	i = 1;
-	while(i < ac)
+	i = 0;
+	while(av[i])
 	{
 			j = 0;
-		while(av[i])
+		while(av[i][j])
 		{
-			if (ft_isdigit(av[i][j]) == 0 || av[i][0] == '\0')
+			if (ft_isdigit(av[i][j]) == 0)
 				return(0);
 			j++;
 		}
@@ -33,17 +33,41 @@ int check_dig(int ac,char **av)
 	}
 	return (1);
 }
-int check_dup(int ac,char **av)
+int check_sp_nl(int ac,char **av)
+{
+	int i ;
+	int j ;
+
+	i = 1;
+	while(i < ac)
+	{
+		j = 0;
+		if (av[i][0] == '\0')
+			return (0);
+		while(av[i][j])
+		{
+			while (av[i][j] == ' ')
+				j++;
+			if (av[i][j] == '\0')
+				return(0);
+			if (av[i][j] != ' ')
+				break;
+		}
+		i++;
+	}
+	return (1);
+}
+int check_dup(char **av)
 {
 	int i;
 	int j;
 
-	i = 1;
+	i = 0;
 
-	while (i < ac)
+	while (av[i])
 	{
 		j = i + 1;
-		while (j < ac)
+		while (av[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
@@ -53,5 +77,31 @@ int check_dup(int ac,char **av)
 		}
 		i++;
 	}
+	return 1;
+}
+int parcing(int ac, char **av, t_list *stack_a)
+{
+	
+	int i;
+
+	i = 0;
+	if (check_sp_nl(ac,av) == 0)
+		return (0);
+	av = splitargs(ac,av);
+	i = 0;
+	if (check_dup(av) == 0 || check_dig(av) == 0)
+		return 0;
+	while (av[i])
+	{
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));
+		i++;
+	}
+	
+	while(stack_a)
+	{
+		printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
+	} 
+	
 	return 1;
 }
