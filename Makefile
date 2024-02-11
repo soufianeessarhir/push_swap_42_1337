@@ -4,6 +4,9 @@ SOURCES = main.c\
 		utils1.c\
 		utils2.c\
 		parcing.c\
+		swaps.c\
+		rotates.c\
+		rev_rotates.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
 

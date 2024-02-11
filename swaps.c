@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 07:11:13 by sessarhi         ###   ########.fr       */
+/*   Created: 2024/02/11 04:54:38 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/02/11 05:55:57 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pa(t_list **stack_a,t_list **stack_b)
+void sa(t_list **stack_a)
 {
 	int tmp;
-
 	tmp = (*stack_a)->content;
+	
+	(*stack_a)->content = (*stack_a)->next->content;
+	(*stack_a)->next->content = tmp;
+	write(1,"sa\n",3);
 }
-int main(int ac, char  **av)
+void sb(t_list **stack_b)
 {
-	t_list *stack_a;
-	 stack_a = NULL;
-	if (parcing(ac, av, &stack_a) == 0)
-	{
-		write(1, "Error\n",6);
-		return (0);
-	}
-	rra(&stack_a);
-	while(stack_a)
-	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
-	} 
-	return 0;
+	int tmp;
+	tmp = (*stack_b)->content;
+	
+	(*stack_b)->content = (*stack_b)->next->content;
+	(*stack_b)->next->content = tmp;
+	write(1,"sb\n",3);
+	
 }
-
+void ss(t_list **stack_b,t_list **stack_a)
+{
+	sa(stack_a);
+	sb(stack_b);
+}

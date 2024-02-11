@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parcing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/11 04:54:24 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/02/11 05:17:28 by sessarhi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 char	**splitargs(int ac, char **av)
 {
@@ -84,7 +96,7 @@ int check_dup(char **av)
 	}
 	return 1;
 }
-int parcing(int ac, char **av, t_list *stack_a)
+int parcing(int ac, char **av, t_list **stack_a)
 {
 	
 	int i;
@@ -105,15 +117,10 @@ int parcing(int ac, char **av, t_list *stack_a)
 	i = 0;
 	while (av[i])
 	{
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));
+		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
 	
-	while(stack_a)
-	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
-	} 
 	
 	return 1;
 }

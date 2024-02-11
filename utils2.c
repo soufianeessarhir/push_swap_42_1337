@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/11 04:55:13 by sessarhi          #+#    #+#             */
+/*   Updated: 2024/02/11 06:05:58 by sessarhi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -79,4 +91,12 @@ int	ft_sing_range(const char *str)
 	if (!(*str >= '0' && *str <= '9') && *str != '\0')
 		return (0);
 	return (1);
+}
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
