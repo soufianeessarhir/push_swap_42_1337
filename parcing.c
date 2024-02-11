@@ -25,7 +25,7 @@ int check_dig(char **av)
 			j = 0;
 		while(av[i][j])
 		{
-			if (ft_isdigit(av[i][j]) == 0)
+			if (ft_isdigit(av[i][j]) == 0 && av[i][0] != '-' && av[i][0] != '+')
 				return(0);
 			j++;
 		}
@@ -33,6 +33,11 @@ int check_dig(char **av)
 	}
 	return (1);
 }
+
+// int is_space(int c)
+// {
+
+// }
 int check_sp_nl(int ac,char **av)
 {
 	int i ;
@@ -89,8 +94,15 @@ int parcing(int ac, char **av, t_list *stack_a)
 		return (0);
 	av = splitargs(ac,av);
 	i = 0;
+	while (av[i])
+	{
+		if (ft_sing_range(av[i]) == 0)
+			return (0);
+		i++;
+	}
 	if (check_dup(av) == 0 || check_dig(av) == 0)
 		return 0;
+	i = 0;
 	while (av[i])
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));

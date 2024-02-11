@@ -52,3 +52,31 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp = tmp->next;
 	tmp->next = new;
 }
+int	ft_sing_range(const char *str)
+{
+	long long	nb;
+	int 	s;
+	nb = 0;
+
+	s = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			s = -1;
+		str++;
+	}
+	if (!(*str >= '0' && *str <= '9'))
+		return (0);
+	while (*str && (*str >= '0' && *str <= '9'))
+	{
+		nb = nb * 10 + (*str - '0');
+		str++;
+		if ((s * nb) >  2147483647 || (s * nb) < -2147483648)
+			return (0); 
+	}
+	if (!(*str >= '0' && *str <= '9') && *str != '\0')
+		return (0);
+	return (1);
+}

@@ -27,4 +27,5 @@ int parcing(int ac, char **av, t_list *stack_a);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(int content);
 int check_sp_nl(int ac,char **av);
+int	ft_sing_range(const char *str);
 #endif
