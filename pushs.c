@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   pushs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 00:59:36 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/12 01:00:29 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/12 01:04:40 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pa(t_list **stack_a,t_list **stack_b)
+void pb(t_list **stack_a,t_list **stack_b)
 {
 	int tmp;
 	t_list *ptr;
@@ -23,9 +23,9 @@ void pa(t_list **stack_a,t_list **stack_b)
 	free(ptr);
 	ptr = NULL;
 	ft_lstadd_front(stack_b,ft_lstnew(tmp));
-	write(1, "pa\n",3);
+	write(1, "pb\n",3);
 }
-void pb(t_list **stack_a,t_list **stack_b)
+void pa(t_list **stack_a,t_list **stack_b)
 {
 	int tmp;
 	t_list *ptr;
@@ -36,6 +36,6 @@ void pb(t_list **stack_a,t_list **stack_b)
 	free(ptr);
 	ptr = NULL;
 	ft_lstadd_front(stack_a,ft_lstnew(tmp));
-	write(1, "pb\n",3);
+	write(1, "pa\n",3);
 	
 }

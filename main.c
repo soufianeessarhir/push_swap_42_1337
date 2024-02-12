@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/12 01:02:18 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/12 01:04:03 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int ac, char  **av)
 		write(1, "Error\n",6);
 		return (0);
 	}
-	pa(&stack_a,&stack_b);
+	// pa(&stack_a,&stack_b);
 	pb(&stack_a,&stack_b);
 	while(stack_a)
 	{
