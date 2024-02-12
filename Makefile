@@ -7,6 +7,7 @@ SOURCES = main.c\
 		swaps.c\
 		rotates.c\
 		rev_rotates.c\
+		pushs.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
 
