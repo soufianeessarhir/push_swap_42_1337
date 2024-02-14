@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/14 06:39:15 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/14 07:18:43 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,41 @@ void push(t_list **stack_a,t_list **stack_b, int min)
 		pb(stack_a,stack_b);
 	}	
 }
+void sort4(t_list **stack_a,t_list **stack_b,int min)
+{
+		if (min == 1)
+		pb(stack_a,stack_b);
+		else if (min == 2)
+		{
+			sa(stack_a);
+			pb(stack_a,stack_b);
+		}
+		else if (min == 3)
+		{
+			rra(stack_a);
+			rra(stack_a);
+			pb(stack_a,stack_b);
+		}
+		else if (min == 4)
+		{
+			rra(stack_a);
+			pb(stack_a,stack_b);
+		}
+		sort3(stack_a);
+		pa(stack_a,stack_b);
+}
 void sort5(t_list **stack_a , t_list **stack_b)
 {
-	push(stack_a,stack_b,find_min((*stack_a)));
-	push(stack_a,stack_b,find_min((*stack_a)));
-	sort3(stack_a);
-	pa(stack_a,stack_b);
-	pa(stack_a,stack_b);
+	if (ft_lstsize(*stack_a) == 4)
+	{
+		sort4(stack_a,stack_b,find_min((*stack_a)));
+	}
+	else if (ft_lstsize(*stack_a) == 5)
+	{
+		push(stack_a,stack_b,find_min((*stack_a)));
+		sort4(stack_a,stack_b,find_min((*stack_a)));
+		pa(stack_a,stack_b);
+	}
 }
 
 
@@ -133,7 +161,7 @@ int main(int ac, char  **av)
 	}
 	if (ft_lstsize(stack_a) == 3)
 		sort3(&stack_a);
-	if (ft_lstsize(stack_a) == 5)
+	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
 		sort5(&stack_a,&stack_b);
 	while(stack_a)
 	{
