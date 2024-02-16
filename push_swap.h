@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/12 01:00:59 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/16 04:22:09 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ void rrb(t_list **stack_b);
 void rrr(t_list **stack_a,t_list **stack_b);
 void pa(t_list **stack_a,t_list **stack_b);
 void pb(t_list **stack_a,t_list **stack_b);
-
+int	ft_lstsize(t_list *lst);
+void sort3(t_list **stack_a);
+int find_min(t_list *stack_a);
+void push(t_list **stack_a,t_list **stack_b, int min,int flag);
+void sort5(t_list **stack_a , t_list **stack_b);
 
 #endif

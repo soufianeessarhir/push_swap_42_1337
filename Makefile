@@ -8,6 +8,8 @@ SOURCES = main.c\
 		rotates.c\
 		rev_rotates.c\
 		pushs.c\
+		utils3.c\
+		sorting_under_5.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
 
