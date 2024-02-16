@@ -10,6 +10,7 @@ SOURCES = main.c\
 		pushs.c\
 		utils3.c\
 		sorting_under_5.c\
+		sort_any.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
 
