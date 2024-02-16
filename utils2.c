@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:55:13 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 06:05:58 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:26:44 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_list	*ft_lstnew(int content)
 	if (!head)
 		return (NULL);
 	head->content = content;
+	head->index = -1;
 	head->next = NULL;
 	return (head);
 }

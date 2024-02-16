@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/16 08:39:08 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:22:21 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 typedef struct s_list
 {
+	int 		index;
 	int			content;
 	struct s_list	*next;
 }				t_list;
