@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 06:00:17 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 07:06:05 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:40:17 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void rra(t_list **stack_a)
 {
 	int tmp;
+	int tmp1;
 	t_list *head;
 	t_list *prev;
 	
@@ -25,9 +26,10 @@ void rra(t_list **stack_a)
 		(*stack_a) = (*stack_a)->next;
 	}
 	tmp = (*stack_a)->content;
+	tmp1 = (*stack_a)->index;
+	ft_lstadd_front(&head,ft_lstnew(tmp,tmp1));
 	free((*stack_a));
 	prev->next = NULL;
-	ft_lstadd_front(&head,ft_lstnew(tmp));
 	(*stack_a) = head;
 	write(1,"rra\n",4);
 
@@ -35,6 +37,7 @@ void rra(t_list **stack_a)
 void rrb(t_list **stack_b)
 {
 	int tmp;
+	int tmp1;
 	t_list *head;
 	t_list *prev;
 	
@@ -45,9 +48,10 @@ void rrb(t_list **stack_b)
 		(*stack_b) = (*stack_b)->next;
 	}
 	tmp = (*stack_b)->content;
+	tmp1 = (*stack_b)->index;
 	free((*stack_b));
 	prev->next = NULL;
-	ft_lstadd_front(&head,ft_lstnew(tmp));
+	ft_lstadd_front(&head,ft_lstnew(tmp,tmp1));
 	(*stack_b) = head;
 	write(1,"rrb\n",4);
 }

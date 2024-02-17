@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/17 14:11:01 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:27:18 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	**splitargs(int ac, char **av);
 int parcing(int ac, char **av, t_list **stack_a);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(int content,int index);
 int check_sp_nl(int ac,char **av);
 int	ft_sing_range(const char *str);
 void sa(t_list **stack_a);

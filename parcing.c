@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:24 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 05:17:28 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:33:12 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int parcing(int ac, char **av, t_list **stack_a)
 	i = 0;
 	while (av[i])
 	{
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i])));
+		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i]),-1));
 		i++;
 	}
 	

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:55:13 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:26:44 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:25:25 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	*(newstr + i) = '\0';
 	return (newstr);
 }
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content ,int index)
 {
 	t_list	*head;
 
@@ -44,7 +44,7 @@ t_list	*ft_lstnew(int content)
 	if (!head)
 		return (NULL);
 	head->content = content;
-	head->index = -1;
+	head->index = index;
 	head->next = NULL;
 	return (head);
 }
