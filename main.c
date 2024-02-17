@@ -6,35 +6,34 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/16 12:20:48 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/17 11:45:17 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int _min_(t_list **stack_a)
+int _min_(t_list *stack_a)
 {
 	int min;
-	int i;
 	t_list *tmp;
 	
-	tmp = (*stack_a);
-	i = 0;
-	while ((*stack_a)->next)
+	tmp = stack_a;
+	while (tmp)
 	{
-		printf("%d-------------------%d\n",(*stack_a)->content,(*stack_a)->next->content);
-		if ((*stack_a)->next->content < (*stack_a)->content)
+		if (tmp->index == -1)
 		{
-			printf("%d-------------------\n",min);
-			if ((*stack_a)->next->index == -1)
-				min = (*stack_a)->next->content;
+			min = tmp->content;
+			break;	
 		}
-		(*stack_a) = (*stack_a)->next;
-		i++;
+		tmp = tmp->next;
 	}
-	
-	exit(1);
-	(*stack_a) = tmp;
+	tmp = stack_a;
+	while (tmp)
+	{
+		if (min > tmp->content && tmp->index == -1)
+			min = tmp->content;
+		tmp = tmp->next;
+	}
 	return min;
 }
 void indexing(t_list **stack_a)
@@ -45,28 +44,20 @@ void indexing(t_list **stack_a)
 	
 	i = 0;
 	tmp = (*stack_a);
-	min = _min_(stack_a);
-	
+	(*stack_a) = tmp;
 	while (i < ft_lstsize(*stack_a))
 	{
-		while ((*stack_a)->next)
+		min = _min_(*stack_a);
+		while ((*stack_a))
 		{
-			if ((*stack_a)->content == min)
+			if (min == (*stack_a)->content)
 				(*stack_a)->index = i;
 			(*stack_a) = (*stack_a)->next;	
 		}
-		i++;
 		(*stack_a) = tmp;
-		min = _min_(stack_a);
+		i++;
+
 	}
-	
-	// while ((*stack_a)->next)
-	// {
-	// 	printf("%d\n", (*stack_a)->index);
-	// 	(*stack_a) = (*stack_a)->next;
-	// }
-	exit(1);
-	
 }
 int main(int ac, char  **av)
 {
@@ -84,6 +75,11 @@ int main(int ac, char  **av)
 		sort5(&stack_a,&stack_b);
 	else
 	sort_all(&stack_a,&stack_b);
+	while(stack_a)
+	{
+		printf("%d ===> index = %d\n" , stack_a->content, stack_a->index);
+		stack_a = stack_a->next;
+	} 
 	// if (ft_lstsize(stack_a) == 2)
 	// {
 	// 	if (stack_a->content > stack_a->next->content)
@@ -91,11 +87,6 @@ int main(int ac, char  **av)
 	// }
 	// if (ft_lstsize(stack_a) == 3)
 	// 	sort3(&stack_a);
-	while(stack_a)
-	{
-		printf("%d\n", stack_a->index);
-		stack_a = stack_a->next;
-	} 
 	// while(stack_b)
 	// {
 	// 	printf("%d\n", stack_b->content);
