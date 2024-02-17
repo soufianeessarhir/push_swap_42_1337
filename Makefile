@@ -11,6 +11,7 @@ SOURCES = main.c\
 		utils3.c\
 		sorting_under_5.c\
 		sort_any.c\
+		indexing.c\
 		
 OBJECTS = $(SOURCES:.c=.o)
 
