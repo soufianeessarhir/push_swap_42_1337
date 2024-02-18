@@ -6,15 +6,47 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/18 12:35:46 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/18 14:36:03 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+int get_pos2(t_list *stack,int  max)
+{
+	t_list *tmp;
+	int i;
+	
+	tmp = (stack);
+	i = 0;
+	while(tmp)
+	{
+		if (max == tmp->index)
+			return (i);
+		tmp = tmp->next;
+		i++;	
+	}
+	return -1;
+}
+int _max(t_list *stack_b)
+{
+	int max;
+	t_list *tmp;
+	
+	max = stack_b->index;
+	tmp = stack_b;
+	while (tmp->next)
+	{
+		if (max < tmp->next->index)
+			max = tmp->next->index;
+		tmp = tmp->next;
+	}
+	return max;
+}
 void sort_100(t_list **stack_a, t_list **stack_b)
 {
 	int i;
+	int max;
+
 	int r_min;
 
 	i = 0;
@@ -25,9 +57,11 @@ void sort_100(t_list **stack_a, t_list **stack_b)
 		if ((*stack_a)->index >= r_min && (*stack_a)->index < r_min + 20)
 		{
 			pb(stack_a,stack_b);
-			i++;
-			if (i >=2 && (*stack_b)->index > (*stack_b)->next->index)
+				i++;
+			if (i > 1 && (*stack_b)->index > (*stack_b)->next->index)
 				rb(stack_b);
+			else if (i > 1 && (*stack_b)->index < (*stack_b)->next->index)
+				sb(stack_b);
 		}
 		else 
 			ra(stack_a);
@@ -38,12 +72,24 @@ void sort_100(t_list **stack_a, t_list **stack_b)
 		}
 		
 	}
-	while(*stack_b)
+
+	while((*stack_b))
 	{
-		printf("%d ===> index = %d\n" , (*stack_b)->content, (*stack_b)->index);
-		(*stack_b) = (*stack_b)->next;
-	} 
-	exit(1);
+		max = _max(*stack_b) ;
+		if (get_pos2((*stack_b),max) <= (ft_lstsize(*stack_b) / 2))
+		{
+			while ((*stack_b)->index != max)
+				rb(stack_b);
+			pa(stack_a,stack_b);
+		}
+		else if(get_pos2((*stack_b),max) > (ft_lstsize(*stack_b) / 2))
+		{
+			while ((*stack_b)->index != max)
+				rrb(stack_b);
+			pa(stack_a,stack_b);
+		}
+		i++;
+	}
 }
 int main(int ac, char  **av)
 {
