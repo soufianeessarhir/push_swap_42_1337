@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/18 14:36:03 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:23:22 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ void sort_100(t_list **stack_a, t_list **stack_b)
 		{
 			pb(stack_a,stack_b);
 				i++;
-			if (i > 1 && (*stack_b)->index > (*stack_b)->next->index)
+			if ((*stack_b)->index < ((r_min + 20) - 10))
 				rb(stack_b);
-			else if (i > 1 && (*stack_b)->index < (*stack_b)->next->index)
-				sb(stack_b);
 		}
 		else 
 			ra(stack_a);
