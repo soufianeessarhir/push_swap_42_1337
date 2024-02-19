@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/19 13:51:46 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:36:35 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ int _min(t_list *stack_a)
 	}
 	return min;
 }
-int get_pos(t_list *stack,int  max)
+int get_pos(t_list *stack,int nb)
 {
 	t_list *tmp;
 	int i;
-	
+
+
 	tmp = (stack);
 	i = 1;
-	while(tmp->next)
+	while(tmp)
 	{
-		if (max == tmp->index)
+		if (nb == tmp->index)
 			return (i);
 		tmp = tmp->next;
 		i++;	
