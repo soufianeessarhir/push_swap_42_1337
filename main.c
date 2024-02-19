@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/19 17:25:15 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:04:46 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int get_min_mov(t_list *stack,int  max,int size)
 	int min_pos;
 	
 	tmp = (stack);
-	i = 1;
+	i = 0;
 	pos = 0;
 	while(tmp->next)
 	{
@@ -32,7 +32,7 @@ int get_min_mov(t_list *stack,int  max,int size)
 		tmp = tmp->next;
 		i++;	
 	}
-	if (pos <= size)
+	if (pos <= size / 2)
 		min_pos = pos;
 	else
 		min_pos = size - pos;
@@ -40,7 +40,7 @@ int get_min_mov(t_list *stack,int  max,int size)
 }
 void max_push(t_list **stack_a,t_list **stack_b,int max )
 {
-	if (get_pos((*stack_b),max) <= ft_lstsize((*stack_b)) /2 )
+	if (get_pos((*stack_b),max) <= ft_lstsize((*stack_b)) / 2 )
 	{
 		while ((*stack_b)->index != max)
 			rb(stack_b);
@@ -94,7 +94,7 @@ void mov_to_a(t_list **stack_a,t_list **stack_b)
 	{
 		_max(*stack_b,&max);
 		befor_max = max - 1;
-		if (get_min_mov((*stack_b),max,ft_lstsize((*stack_b))) < get_min_mov((*stack_b),befor_max,ft_lstsize((*stack_b))))
+		if (get_min_mov((*stack_b),max,ft_lstsize((*stack_b))) <= get_min_mov((*stack_b),befor_max,ft_lstsize((*stack_b))))
 		{
 			max_push(stack_a,stack_b,max);
 			befor_max_push(stack_a,stack_b,befor_max);
@@ -122,7 +122,7 @@ void sort_100(t_list **stack_a, t_list **stack_b)
 			pb(stack_a,stack_b);
 			i++;
 			if ((*stack_b)->index > ((r_min +  11)))
-				rb(stack_b);		
+				rb(stack_b);	
 			if (i == 20)
 			{
 				i = 0;
