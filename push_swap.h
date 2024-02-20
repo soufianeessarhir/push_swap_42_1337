@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:27:18 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:05:41 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,14 @@ void sort3(t_list **stack_a);
 int find_min(t_list *stack_a);
 void push(t_list **stack_a,t_list **stack_b, int min,int flag);
 void sort5(t_list **stack_a , t_list **stack_b);
-int _min(t_list *stack_a);
 int get_pos(t_list *stack,int  min);
-void sort_all(t_list **stack_a, t_list **stack_b);
 void indexing(t_list **stack_a);
-int _min_(t_list *stack_a);
+int get_min_mov(t_list *stack,int  max,int size);
+void max_push(t_list **stack_a,t_list **stack_b,int max );
+void befor_max_push(t_list **stack_a,t_list **stack_b,int befor_max);
+void _max(t_list *stack_b,int *max);
+void mov_to_a(t_list **stack_a,t_list **stack_b);
+void sort_any(t_list **stack_a, t_list **stack_b);
+
 
 #endif

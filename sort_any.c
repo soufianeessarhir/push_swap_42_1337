@@ -6,149 +6,133 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/19 18:35:16 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:05:49 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-int get_pos(t_list *stack,int nb)
+
+int get_min_mov(t_list *stack,int  max,int size)
 {
 	t_list *tmp;
 	int i;
-
-
+	int pos;
+	int min_pos;
+	
 	tmp = (stack);
-	i = 1;
-	while(tmp)
+	i = 0;
+	pos = 0;
+	while(tmp->next)
 	{
-		if (nb == tmp->index)
-			return (i);
+		if (max == tmp->index)
+		{
+			pos = i;
+			break;
+		}
 		tmp = tmp->next;
 		i++;	
 	}
-	return -1;
+	if (pos <= size / 2)
+		min_pos = pos;
+	else
+		min_pos = size - pos;
+	return min_pos;
 }
-// int get_min_mov(t_list *stack,int  max,int size)
-// {
-// 	t_list *tmp;
-// 	int i;
-// 	int pos;
-// 	int min_pos;
+void max_push(t_list **stack_a,t_list **stack_b,int max )
+{
+	if (get_pos((*stack_b),max) <= ft_lstsize((*stack_b)) / 2 )
+	{
+		while ((*stack_b)->index != max)
+			rb(stack_b);
+		pa(stack_a,stack_b);
+	}
+	else
+	{
+		while ((*stack_b)->index != max)
+			rrb(stack_b);
+		pa(stack_a,stack_b);
+	}
+}
+void befor_max_push(t_list **stack_a,t_list **stack_b,int befor_max)
+{
+	if (get_pos((*stack_b),befor_max) <= ft_lstsize((*stack_b)) / 2 )
+		{
+			while ((*stack_b)->index != befor_max )
+				rb(stack_b);
+			pa(stack_a,stack_b);
+		}
+	else
+		{
+			while ((*stack_b)->index != befor_max)
+				rrb(stack_b);
+			pa(stack_a,stack_b);
+		}
+		return;
+}
 	
-// 	tmp = (stack);
-// 	i = 1;
-// 	pos = 0;
-// 	while(tmp->next)
-// 	{
-// 		if (max == tmp->index)
-// 		{
-// 			pos = i;
-// 			break;
-// 		}
-// 		tmp = tmp->next;
-// 		i++;	
-// 	}
-// 	if (pos <= size)
-// 		min_pos = pos;
-// 	else
-// 		min_pos = size - pos;
-// 	return min_pos;
-// }
-// void max_push(t_list **stack_a,t_list **stack_b,int max )
-// {
-// 	if (get_pos((*stack_b),max) <= ft_lstsize((*stack_b)) /2 )
-// 	{
-// 		while ((*stack_b)->index != max)
-// 			rb(stack_b);
-// 		pa(stack_a,stack_b);
-// 	}
-// 	else
-// 	{
-// 		while ((*stack_b)->index != max)
-// 			rrb(stack_b);
-// 		pa(stack_a,stack_b);
-// 	}
-// }
-// void befor_max_push(t_list **stack_a,t_list **stack_b,int befor_max)
-// {
-// 	if (get_pos((*stack_b),befor_max) <= ft_lstsize((*stack_b)) / 2 )
-// 		{
-// 			while ((*stack_b)->index != befor_max )
-// 				rb(stack_b);
-// 			pa(stack_a,stack_b);
-// 		}
-// 	else
-// 		{
-// 			while ((*stack_b)->index != befor_max)
-// 				rrb(stack_b);
-// 			pa(stack_a,stack_b);
-// 		}
-// 		return;
-// }
+void _max(t_list *stack_b,int *max)
+{
 	
-// void _max(t_list *stack_b,int *max)
-// {
+	t_list *tmp;
 	
-// 	t_list *tmp;
+	*max = stack_b->index;
+	tmp = stack_b;
+	while (tmp->next)
+	{
+		if (*max < tmp->next->index)
+			*max = tmp->next->index;
+		tmp = tmp->next;
+	}
 	
-// 	*max = stack_b->index;
-// 	tmp = stack_b;
-// 	while (tmp->next)
-// 	{
-// 		if (*max < tmp->next->index)
-// 			*max = tmp->next->index;
-// 		tmp = tmp->next;
-// 	}
-	
-// }
-// void mov_to_a(t_list **stack_a,t_list **stack_b)
-// {
-// 	int max;
-// 	int befor_max;
+}
+void mov_to_a(t_list **stack_a,t_list **stack_b)
+{
+	int max;
+	int befor_max;
 
-// 	while((*stack_b))
-// 	{
-// 		_max(*stack_b,&max);
-// 		befor_max = max - 1;
-// 		if (get_min_mov((*stack_b),max,ft_lstsize((*stack_b))) < get_min_mov((*stack_b),befor_max,ft_lstsize((*stack_b))))
-// 		{
-// 			max_push(stack_a,stack_b,max);
-// 			befor_max_push(stack_a,stack_b,befor_max);
-// 		}
-// 		else
-// 		{
-// 			befor_max_push(stack_a,stack_b,befor_max);
-// 			max_push(stack_a,stack_b,max);
-// 			sa(stack_a);
-// 		}
-// 	}
-// }
-// void sort_any(t_list **stack_a, t_list **stack_b)
-// {
-// 	int i;
-// 	int r_min;
+	while((*stack_b))
+	{
+		_max(*stack_b,&max);
+		befor_max = max - 1;
+		if (get_min_mov((*stack_b),max,ft_lstsize((*stack_b))) <= get_min_mov((*stack_b),befor_max,ft_lstsize((*stack_b))))
+		{
+			max_push(stack_a,stack_b,max);
+			befor_max_push(stack_a,stack_b,befor_max);
+		}
+		else
+		{
+			befor_max_push(stack_a,stack_b,befor_max);
+			max_push(stack_a,stack_b,max);
+			sa(stack_a);
+		}
+	}
+}
+void sort_any(t_list **stack_a, t_list **stack_b)
+{
+	int i;
+	int r_min;
 
-// 	i = 0;
-// 	r_min = 0;
+	i = 0;
+	r_min = 0;
 	
-// 	while (*stack_a)
-// 	{
-// 		if ((*stack_a)->index >= r_min && (*stack_a)->index < r_min + 20)
-// 		{
-// 			pb(stack_a,stack_b);
-// 			i++;
-// 			if ((*stack_b)->index > ((r_min +  11)))
-// 				rb(stack_b);		
-// 			if (i == 20)
-// 			{
-// 				i = 0;
-// 				r_min = r_min + 20;
-// 			}
-// 		}
-// 		else 
-// 			ra(stack_a);
-// 	}
-// 	mov_to_a(stack_a,stack_b);
-// }
+	while (*stack_a)
+	{
+		if ((*stack_a)->index >= r_min && (*stack_a)->index < r_min + 20)
+		{
+			pb(stack_a,stack_b);
+			i++;
+			if ((*stack_b)->index > ((r_min +  11)))
+				rb(stack_b);	
+			if (i == 20)
+			{
+				i = 0;
+				r_min = r_min + 20;
+			}
+		}
+		else 
+			ra(stack_a);
+	}
+	mov_to_a(stack_a,stack_b);
+}
