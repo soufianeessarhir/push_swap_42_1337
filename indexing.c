@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:09:50 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/17 14:10:49 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:44:46 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ void indexing(t_list **stack_a)
 	int i;
 	int min;
 	t_list *tmp;
+	t_list *tmp1;
 	
-	i = 0;
+	i = 1;
 	tmp = (*stack_a);
+	tmp1 = (*stack_a);
 	(*stack_a) = tmp;
-	while (i < ft_lstsize(*stack_a))
+	while (i <= ft_lstsize(*stack_a))
 	{
 		min = _min_(*stack_a);
 		while ((*stack_a))

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 04:00:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/19 21:16:01 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:15:35 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int get_pos(t_list *stack,int nb)
 
 
 	tmp = (stack);
-	i = 1;
+	i = 0;
 	while(tmp)
 	{
 		if (nb == tmp->index)
