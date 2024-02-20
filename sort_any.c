@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/20 20:37:52 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:47:05 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void _max(t_list *stack_b,int *max)
 void mov_to_a(t_list **stack_a,t_list **stack_b)
 {
 	int max;
-	int befor_max;
+	int befor_max; //indexes
 
 	while((*stack_b))
 	{
 		
-		_max(*stack_b,&max);
+		_max(*stack_b,&max); 
 		befor_max = max - 1;
 		if (get_min_mov((*stack_b),max) <= get_min_mov((*stack_b),befor_max))
 		{
@@ -113,8 +113,8 @@ void sort_any(t_list **stack_a, t_list **stack_b)
 	a = 0;
 	if (ft_lstsize(*stack_a) <= 100)
 		a = ft_lstsize(*stack_a) / 5;
-	else if(ft_lstsize((*stack_a)) == 500)
-		a = (ft_lstsize(*stack_a) / 9 );
+	else 
+		a = (ft_lstsize(*stack_a) / 8);
 	i = 0;
 	j = a;
 	

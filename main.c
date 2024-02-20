@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/20 11:06:13 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:26:56 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int main(int ac, char  **av)
 		write(1, "Error\n",6);
 		return (0);
 	}
-	indexing(&stack_a);
+	indexing(&stack_a); //  good 
+	
 	sort_any(&stack_a,&stack_b);
 	// if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
 	// 	sort5(&stack_a,&stack_b);
