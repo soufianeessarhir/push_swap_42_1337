@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/20 19:14:33 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:37:52 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,21 @@ int get_min_mov(t_list *stack,int  max)
 {
 	t_list *tmp;
 	int i;
-	int min_pos;
 	
-	tmp = (stack);
+	tmp = stack;
 	i = 0;
-	min_pos = 0;
+
 	while(tmp)
 	{
-		if (max == tmp->index)
+		if (max != tmp->index)
+			i++;
+		else
 			break;
-		i++;	
 		tmp = tmp->next;
 	}
-	if (i <= (ft_lstsize((stack)) / 2))
-		min_pos = i;
-	else
-		min_pos = ft_lstsize((stack)) - i;
-	return min_pos;
+	if (i <= (ft_lstsize(stack) / 2))
+		return (i);
+	return (ft_lstsize((stack)) - i);
 }
 void max_push(t_list **stack_a,t_list **stack_b,int max)
 {
@@ -116,7 +114,7 @@ void sort_any(t_list **stack_a, t_list **stack_b)
 	if (ft_lstsize(*stack_a) <= 100)
 		a = ft_lstsize(*stack_a) / 5;
 	else if(ft_lstsize((*stack_a)) == 500)
-		a = ft_lstsize(*stack_a) / 9;
+		a = (ft_lstsize(*stack_a) / 9 );
 	i = 0;
 	j = a;
 	
@@ -127,7 +125,7 @@ void sort_any(t_list **stack_a, t_list **stack_b)
 			pb(stack_a,stack_b);
 			i++;
 			if ((*stack_b)->index > (j -  (a / 2)))
-				rb(stack_b);	
+				rb(stack_b);
 			if (i == j)
 			{
 				 j+= a;
