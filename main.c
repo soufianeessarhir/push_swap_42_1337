@@ -6,12 +6,22 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/20 21:26:56 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:08:43 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int if_sort(t_list *stack_a)
+{
+	while (stack_a)
+	{
+	if (stack_a->content > stack_a->next->content)
+		return (1);
+	stack_a = stack_a->next;
+	}
+	return (0);
+}
 
 int main(int ac, char  **av)
 {
@@ -25,29 +35,17 @@ int main(int ac, char  **av)
 		write(1, "Error\n",6);
 		return (0);
 	}
-	indexing(&stack_a); //  good 
-	
-	sort_any(&stack_a,&stack_b);
-	// if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
-	// 	sort5(&stack_a,&stack_b);
-	// else
-	// sort_all(&stack_a,&stack_b);
-	// while(stack_a)
-	// {
-	// 	printf("%d ===> index = %d\n" , stack_a->content, stack_a->index);
-	// 	stack_a = stack_a->next;
-	// } 
-	// if (ft_lstsize(stack_a) == 2)
-	// {
-	// 	if (stack_a->content > stack_a->next->content)
-	// 		sa (&stack_a);
-	// }
-	// if (ft_lstsize(stack_a) == 3)
-	// 	sort3(&stack_a);
-	// while(stack_b)
-	// {
-	// 	printf("%d\n", stack_b->content);
-	// 	stack_b = stack_b->next;
-	// } 
+	indexing(&stack_a);
+	if (if_sort(stack_a))
+	{
+		if (ft_lstsize(stack_a) == 2)
+			sa (&stack_a);
+		else if (ft_lstsize(stack_a) == 3)
+			sort3(&stack_a);
+		else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
+			sort5(&stack_a,&stack_b);
+		else
+			sort_any(&stack_a,&stack_b);
+	}
 	return 0;
 }
