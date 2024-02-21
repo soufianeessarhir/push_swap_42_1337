@@ -6,19 +6,67 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 18:57:43 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:13:51 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
+void actions(t_list  **stack_a,t_list **stack_b, char *val)
+{
+	
+	if (ft_strcmp(val,"ra") == 0)
+		ra(stack_a);
+	else if (ft_strcmp(val,"rb") == 0)
+		rb(stack_b);
+	else if (ft_strcmp(val,"rr") == 0)
+	{
+		ra(stack_a);
+		rb(stack_b);
+	}
+	else if (ft_strcmp(val,"pa") == 0)
+		pa(stack_a,stack_b);
+	else if (ft_strcmp(val,"pb") == 0)
+		pb(stack_a,stack_b);
+	else if (ft_strcmp(val,"rra") == 0)
+		rra(stack_a);
+	else if (ft_strcmp(val,"rrb") == 0)
+		rrb(stack_b);
+	else if (ft_strcmp(val,"rrr") == 0)
+	{
+		rra(stack_a);
+		rrb(stack_b);
+	}
+}
+int if_sort(t_list *stack_a)
+{
+	while (stack_a)
+	{
+	if (stack_a->content > stack_a->next->content)
+		return (1);
+	stack_a = stack_a->next;
+	}
+	return (0);
+}
 void check_sort_actions(t_list **stack_a,t_list **stack_b)
 {
-	while (get_next_line(0))
+	char *val;
+	val = get_next_line(0);
+	while (val != EOF )
 	{
-		
+		if (ft_strcmp(val,"sa") == 0)
+			sa(stack_a);
+		else if (ft_strcmp(val,"sb") == 0)
+			sb(stack_b);
+		else
+			actions(stack_a,stack_b,val);
+		free(val);
+		val = get_next_line(0);
 	}
-	
+	if (if_sort(*stack_a))
+		write(1,"ko\n", 3);
+	else
+		write(1,"ok\n", 3);
 }
 int main(int ac, char **av)
 {
