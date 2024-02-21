@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 04:00:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 11:10:15 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:28:41 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,4 @@ int	ft_lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
-}
-int get_pos(t_list *stack,int nb)
-{
-	int i;
-	
-	i = 1;
-	while(stack)
-	{
-		if (nb == stack->index)
-			break;
-		i++;
-		stack = stack->next;	
-	}
-	return i;
 }
