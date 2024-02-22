@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 14:35:27 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:53:19 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void actions(t_list  **stack_a,t_list **stack_b, char *val)
 		ra(stack_a);
 		rb(stack_b);
 	}
-	else if (ft_strcmp(val,"pa\n") == 0 && (*stack_b))
+	else if (ft_strcmp(val,"pa\n") == 0  && (ft_lstsize(*stack_b)))
 		pa(stack_a,stack_b);
-	else if (ft_strcmp(val,"pb\n") == 0 && (*stack_a))
+	else if (ft_strcmp(val,"pb\n") == 0  && (ft_lstsize(*stack_a)))
 		pb(stack_a,stack_b);
 	else if (ft_strcmp(val,"rra\n") == 0 && (ft_lstsize(*stack_a) >  1 ))
 		rra(stack_a);
@@ -69,8 +69,10 @@ int main(int ac, char **av)
 {
 	t_list *stack_a;
 	t_list *stack_b;
+	
 	stack_a = NULL;
 	stack_b = NULL;
+	
 	if (parcing(ac, av, &stack_a) == 0)
 	{
 		write(1, "Error\n",6);
