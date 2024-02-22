@@ -31,7 +31,7 @@ CH_SOURCES = checker.c\
 OBJECTS = $(SOURCES:.c=.o)
 CH_OBJECTS = $(CH_SOURCES:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 RM = rm -f
 
 all: $(NAME)

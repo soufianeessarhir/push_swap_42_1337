@@ -6,12 +6,38 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:52:54 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 13:22:22 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:27:31 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "checker.h"
+char	*my_strjoin(char const *s1, char const *s2)
+{
+	int		i;
+	int		j;
+	char	*newstr;
+
+	i = 0;
+	j = 0;
+	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if (!newstr)
+		return (NULL);
+	while (s1[i])
+	{
+		newstr[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		newstr[i + j] = s2[j];
+		j++;
+	}
+	newstr[i + j] = '\0';
+	free((void *)s1);
+	s1 = NULL;
+	return (newstr);
+}
 
 char	*ft_backup(char **str, int newline)
 {
@@ -52,7 +78,7 @@ char	*get_next_line(int fd)
 		buff[rd] = '\0';
 		if (!str[0] && !rd)
 			break ;
-		str = ft_strjoin(str, buff);
+		str = my_strjoin(str, buff);
 		newline = ft_strchr(str, '\n');
 		if (newline != -42)
 			return (free(buff), haha1(&str, newline));

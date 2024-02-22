@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:38 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 14:23:20 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:53:54 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void sa(t_list **stack_a)
 {
 	int tmp;
 	int tmp1;
+	
 	tmp = (*stack_a)->content;
 	tmp1 = (*stack_a)->index;
-	
+	if (!(ft_lstsize(*stack_a) >  1))
+		return;
 	(*stack_a)->content = (*stack_a)->next->content;
 	(*stack_a)->index = (*stack_a)->next->index;
 	(*stack_a)->next->content = tmp;
@@ -32,7 +34,8 @@ void sb(t_list **stack_b)
 	
 	tmp = (*stack_b)->content;
 	tmp1 = (*stack_b)->index;
-	
+	if (!(ft_lstsize(*stack_b) >  1))
+		return;
 	(*stack_b)->content = (*stack_b)->next->content;
 	(*stack_b)->index = (*stack_b)->next->index;
 	(*stack_b)->next->content = tmp;
@@ -43,6 +46,8 @@ void sb(t_list **stack_b)
 }
 void ss(t_list **stack_b,t_list **stack_a)
 {
+	if ((!(ft_lstsize(*stack_a) >  1)) || (!(ft_lstsize(*stack_b) >  1)))
+		return;
 	sa(stack_a);
 	sb(stack_b);
 }
@@ -51,7 +56,8 @@ void pb(t_list **stack_a,t_list **stack_b)
 	int tmp;
 	int tmp1;
 	t_list *ptr;
-
+	if (!(*stack_a))
+		return;
 	tmp = (*stack_a)->content;
 	tmp1 = (*stack_a)->index;
 	ptr = (*stack_a);
@@ -66,7 +72,8 @@ void pa(t_list **stack_a,t_list **stack_b)
 	int tmp;
 	int tmp1;
 	t_list *ptr;
-
+	if (!(*stack_b))
+		return;
 	tmp = (*stack_b)->content;
 	tmp1 = (*stack_b)->index;
 	ptr = (*stack_b);

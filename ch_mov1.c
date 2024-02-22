@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 05:41:30 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 12:07:35 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:52:29 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void ra(t_list **stack_a)
 	int tmp;
 	int tmp1;
 	
+	if((ft_lstsize(*stack_a) <  2))
+		return;
 	tmp = (*stack_a)->content;
 	tmp1 = (*stack_a)->index;
 	(*stack_a) = (*stack_a)->next;
@@ -26,7 +28,8 @@ void rb(t_list **stack_b)
 {
 	int tmp;
 	int tmp1;
-	
+	if(!(ft_lstsize(*stack_b) > 1))
+		return;
 	tmp = (*stack_b)->content;
 	tmp1 = (*stack_b)->index;
 	(*stack_b) = (*stack_b)->next;
@@ -35,6 +38,8 @@ void rb(t_list **stack_b)
 }
 void rr(t_list **stack_a, t_list **stack_b)
 {
+	if(!(ft_lstsize(*stack_b) >  1) || !(ft_lstsize(*stack_a) >  1))
+		return;
 	ra (stack_a);
 	rb (stack_b);
 }

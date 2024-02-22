@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 12:32:12 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:19:55 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@
 # include <string.h>
 # include <fcntl.h>
 # include <limits.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000000
-# endif
+#  define BUFFER_SIZE 10
 typedef struct s_list
 {
 	int 		index;

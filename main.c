@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 18:08:43 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:47:43 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int if_sort(t_list *stack_a)
 {
-	while (stack_a)
+	while (stack_a->next)
 	{
 	if (stack_a->content > stack_a->next->content)
 		return (1);

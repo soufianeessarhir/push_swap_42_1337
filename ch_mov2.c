@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 06:00:17 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 12:08:02 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:06:30 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void rra(t_list **stack_a)
 	t_list *prev;
 	
 	head = (*stack_a);
+	if (!(ft_lstsize(*stack_a) >  1))
+		return;
 	while ((*stack_a)->next)
 	{
 		prev = (*stack_a);
@@ -41,6 +43,8 @@ void rrb(t_list **stack_b)
 	t_list *prev;
 	
 	head = (*stack_b);
+	if (!(ft_lstsize(*stack_b) >  1))
+		return;
 	while ((*stack_b)->next)
 	{
 		prev = (*stack_b);
@@ -56,6 +60,8 @@ void rrb(t_list **stack_b)
 }
 void rrr(t_list **stack_a,t_list **stack_b)
 {
+	if (!(ft_lstsize(*stack_b) >  1) && !(ft_lstsize(*stack_a) >  1))
+		return;
 	rra(stack_a);
 	rrb(stack_b);
 }
