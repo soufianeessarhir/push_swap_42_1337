@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 16:27:30 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:35:39 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void reindex(t_list **stack_b)
 }
 int get_pos(t_list *stack, int nb)
 {
-    int pos = 1; // Renamed 'i' to 'pos' for better readability
+    int pos;
+	
+	pos = 0;
     
     while (stack)
     {

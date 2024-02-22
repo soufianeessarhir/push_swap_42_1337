@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 12:43:24 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:24:00 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 void actions(t_list  **stack_a,t_list **stack_b, char *val)
 {
 	
-	if (ft_strcmp(val,"ra") == 0)
+	if (ft_strcmp(val,"ra\n") == 0)
 		ra(stack_a);
-	else if (ft_strcmp(val,"rb") == 0)
+	else if (ft_strcmp(val,"rb\n") == 0)
 		rb(stack_b);
-	else if (ft_strcmp(val,"rr") == 0)
+	else if (ft_strcmp(val,"rr\n") == 0)
 	{
 		ra(stack_a);
 		rb(stack_b);
 	}
-	else if (ft_strcmp(val,"pa") == 0)
+	else if (ft_strcmp(val,"pa\n") == 0)
 		pa(stack_a,stack_b);
-	else if (ft_strcmp(val,"pb") == 0)
+	else if (ft_strcmp(val,"pb\n") == 0)
 		pb(stack_a,stack_b);
-	else if (ft_strcmp(val,"rra") == 0)
+	else if (ft_strcmp(val,"rra\n") == 0)
 		rra(stack_a);
-	else if (ft_strcmp(val,"rrb") == 0)
+	else if (ft_strcmp(val,"rrb\n") == 0)
 		rrb(stack_b);
-	else if (ft_strcmp(val,"rrr") == 0)
+	else if (ft_strcmp(val,"rrr\n") == 0)
 	{
 		rra(stack_a);
 		rrb(stack_b);
@@ -54,9 +54,9 @@ void check_sort_actions(t_list **stack_a, t_list **stack_b)
 
 	while ((val = get_next_line(0)) !=NULL)
 	{
-		if (ft_strcmp(val, "sa") == 0)
+		if (ft_strcmp(val, "sa\n") == 0)
 			sa(stack_a);
-		else if (ft_strcmp(val, "sb") == 0)
+		else if (ft_strcmp(val, "sb\n") == 0)
 			sb(stack_b);
 		else
 			actions(stack_a, stack_b, val);
