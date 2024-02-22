@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 20:16:10 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:32:12 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 	int			content;
 	struct s_list	*next;
 }				t_list;
+
 int		ft_atoi(const char *str);
 int 	check_dup(char **av);
 char	**ft_split(char const *s, char c);
@@ -70,5 +71,6 @@ void 	mov_to_a(t_list **stack_a,t_list **stack_b);
 void 	sort_any(t_list **stack_a, t_list **stack_b);
 int		ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
