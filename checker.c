@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 20:37:08 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 22:20:32 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 void actions(t_list  **stack_a,t_list **stack_b, char *val)
 {
 	
-	if (ft_strcmp(val,"ra\n") == 0)
-		ra(stack_a);
-	else if (ft_strcmp(val,"rb\n") == 0)
-		rb(stack_b);
-	else if (ft_strcmp(val,"rr\n") == 0)
+	
+	if (ft_strcmp(val,"rr\n") == 0)
 	{
 		ra(stack_a);
 		rb(stack_b);
@@ -64,6 +61,12 @@ void check_sort_actions(t_list **stack_a, t_list **stack_b)
 				sa(stack_a);
 			else if (ft_strcmp(val, "sb\n") == 0 )
 				sb(stack_b);
+			else if (ft_strcmp(val,"ra\n") == 0)
+				ra(stack_a);
+			else if (ft_strcmp(val,"rb\n") == 0)
+				rb(stack_b);
+			else if (ft_strcmp(val,"ss\n") == 0)
+				ss(stack_a,stack_b);
 			else
 				actions(stack_a, stack_b, val);
 

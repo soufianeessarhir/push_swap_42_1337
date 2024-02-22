@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:38 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 20:53:54 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/22 22:20:52 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,35 @@ void sa(t_list **stack_a)
 {
 	int tmp;
 	int tmp1;
-	
-	tmp = (*stack_a)->content;
-	tmp1 = (*stack_a)->index;
-	if (!(ft_lstsize(*stack_a) >  1))
-		return;
-	(*stack_a)->content = (*stack_a)->next->content;
-	(*stack_a)->index = (*stack_a)->next->index;
-	(*stack_a)->next->content = tmp;
-	(*stack_a)->next->index = tmp1;
-
+	if ((*stack_a) && (*stack_a)->next)
+	{
+		
+		tmp = (*stack_a)->content;
+		tmp1 = (*stack_a)->index;
+		(*stack_a)->content = (*stack_a)->next->content;
+		(*stack_a)->index = (*stack_a)->next->index;
+		(*stack_a)->next->content = tmp;
+		(*stack_a)->next->index = tmp1;
+	}
 }
 void sb(t_list **stack_b)
 {
 	int tmp;
 	int tmp1;
 	
-	tmp = (*stack_b)->content;
-	tmp1 = (*stack_b)->index;
-	if (!(ft_lstsize(*stack_b) >  1))
-		return;
-	(*stack_b)->content = (*stack_b)->next->content;
-	(*stack_b)->index = (*stack_b)->next->index;
-	(*stack_b)->next->content = tmp;
-	(*stack_b)->next->index = tmp1;
-	
+	if ((*stack_b)&& (*stack_b)->next)
+	{
+		tmp = (*stack_b)->content;
+		tmp1 = (*stack_b)->index;
+		(*stack_b)->content = (*stack_b)->next->content;
+		(*stack_b)->index = (*stack_b)->next->index;
+		(*stack_b)->next->content = tmp;
+		(*stack_b)->next->index = tmp1;
+	}
 
-	
 }
-void ss(t_list **stack_b,t_list **stack_a)
+void ss(t_list **stack_a,t_list **stack_b)
 {
-	if ((!(ft_lstsize(*stack_a) >  1)) || (!(ft_lstsize(*stack_b) >  1)))
-		return;
 	sa(stack_a);
 	sb(stack_b);
 }
