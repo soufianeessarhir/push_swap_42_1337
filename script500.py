@@ -2,7 +2,7 @@ import itertools
 import subprocess
 import random
 
-max_permutations = 10# Adjust the number of permutations as needed
+max_permutations = 100# Adjust the number of permutations as needed
 max_instructions = 5500
 
 numbers = list(range(0, 500))

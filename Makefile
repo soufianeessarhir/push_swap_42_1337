@@ -36,12 +36,12 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) push_swap.h checker.h
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 bonus:$(CHECKER)
 
-$(CHECKER): $(CH_OBJECTS)
+$(CHECKER): $(CH_OBJECTS) push_swap.h checker.h
 	$(CC) $(CFLAGS) $(CH_OBJECTS) -o $(CHECKER)
 
 %.o: %.c push_swap.h checker.h
