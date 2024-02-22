@@ -48,9 +48,9 @@ $(CHECKER): $(CH_OBJECTS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) $(CH_OBJECTS)
 
 fclean: clean
-	$(RM) $(NAME) $()
+	$(RM) $(NAME) $(CHECKER)
 
 re: fclean all
