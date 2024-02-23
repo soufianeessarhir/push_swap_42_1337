@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 04:00:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:54:16 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:13:13 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
+
 int	ft_strchr(const char *s, int c)
 {
 	size_t	i;
@@ -39,12 +40,12 @@ int	ft_strchr(const char *s, int c)
 	}
 	return (-42);
 }
+
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
 	i = 0;
- 
 	while ((s1[i] || s2[i]))
 	{
 		if (s1[i] != s2[i])
@@ -78,6 +79,7 @@ int	check_sp_nl(int ac, char **av)
 	}
 	return (1);
 }
+
 int	get_pos(t_list *stack, int nb)
 {
 	int	pos;

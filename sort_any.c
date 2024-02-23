@@ -6,31 +6,11 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:55:58 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:23:26 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_min_mov(t_list *stack, int max)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = stack;
-	i = 0;
-	while (tmp)
-	{
-		if (max != tmp->index)
-			i++;
-		else
-			break ;
-		tmp = tmp->next;
-	}
-	if (i <= (ft_lstsize(stack) / 2))
-		return (i);
-	return (ft_lstsize((stack)) - i);
-}
 
 void	reindex(t_list **stack_b)
 {
@@ -88,17 +68,11 @@ void	mov_to_a(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	sort_any(t_list **stack_a,	t_list **stack_b)
+void	pb_rb(t_list **stack_a, t_list **stack_b, int a, int c)
 {
 	int	i;
-	int	a;
 	int	j;
-	int	c;
 
-	c = ft_lstsize(*stack_a) - 5;
-	a = (ft_lstsize(*stack_a) / 9);
-	if (ft_lstsize(*stack_a) <= 100)
-		a = ft_lstsize(*stack_a) / 5;
 	i = 0;
 	j = a;
 	while (*stack_a && ft_lstsize(*stack_a) > 5)
@@ -115,6 +89,18 @@ void	sort_any(t_list **stack_a,	t_list **stack_b)
 		else
 			ra(stack_a);
 	}
+}
+
+void	sort_any(t_list **stack_a,	t_list **stack_b)
+{
+	int	a;
+	int	c;
+
+	c = ft_lstsize(*stack_a) - 5;
+	a = (ft_lstsize(*stack_a) / 9);
+	if (ft_lstsize(*stack_a) <= 100)
+		a = ft_lstsize(*stack_a) / 5;
+	pb_rb(stack_a, stack_b, a, c);
 	sort5(stack_a, stack_b);
 	mov_to_a(stack_a, stack_b);
 }

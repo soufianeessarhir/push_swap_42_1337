@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:55:13 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 13:24:02 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:12:44 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1 = NULL;
 	return (newstr);
 }
-t_list	*ft_lstnew(int content ,int index)
+
+t_list	*ft_lstnew(int content, int index)
 {
 	t_list	*head;
 
@@ -67,12 +68,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp = tmp->next;
 	tmp->next = new;
 }
+
 int	ft_sing_range(const char *str)
 {
 	long long	nb;
-	int 	s;
-	nb = 0;
+	int			s;
 
+	nb = 0;
 	s = 1;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
@@ -88,13 +90,14 @@ int	ft_sing_range(const char *str)
 	{
 		nb = nb * 10 + (*str - '0');
 		str++;
-		if ((s * nb) >  2147483647 || (s * nb) < -2147483648)
-			return (0); 
+		if ((s * nb) > 2147483647 || (s * nb) < -2147483648)
+			return (0);
 	}
 	if (!(*str >= '0' && *str <= '9') && *str != '\0')
 		return (0);
 	return (1);
 }
+
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst && new)

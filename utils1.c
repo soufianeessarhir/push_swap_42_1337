@@ -6,10 +6,9 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:59 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 04:55:00 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:11:02 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -19,6 +18,7 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+
 int	ft_atoi(const char *str)
 {
 	long long	nb;
@@ -40,13 +40,14 @@ int	ft_atoi(const char *str)
 		{
 			if (s == 1)
 				return (-1);
-			return (0); 
+			return (0);
 		}
 		nb = nb * 10 + (*str - '0');
 		str++;
 	}
 	return (s * nb);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*str;
@@ -54,7 +55,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	s_len;
 
 	if (!s)
-		return (NULL); 
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (len == 0 || start > s_len)
 		return (ft_strdup(""));
@@ -72,6 +73,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_strdup(const char *str)
 {
 	int		i;
@@ -89,6 +91,7 @@ char	*ft_strdup(const char *str)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
