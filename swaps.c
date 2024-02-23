@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:38 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 19:18:22 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 21:34:23 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,4 @@ void	ss(t_list **stack_b, t_list **stack_a)
 {
 	sa(stack_a);
 	sb(stack_b);
-}
-
-int	get_min_mov(t_list *stack, int max)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = stack;
-	i = 0;
-	while (tmp)
-	{
-		if (max != tmp->index)
-			i++;
-		else
-			break ;
-		tmp = tmp->next;
-	}
-	if (i <= (ft_lstsize(stack) / 2))
-		return (i);
-	return (ft_lstsize((stack)) - i);
 }

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:16:40 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 21:21:35 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,10 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
 int		ft_lstsize(t_list *lst);
-void	sort3(t_list **stack_a);
-int		find_min(t_list *stack_a);
-void	push(t_list **stack_a, t_list **stack_b, int min, int flag);
-void	sort5(t_list **stack_a, t_list **stack_b);
-int		get_pos(t_list *stack, int min);
-void	indexing(t_list **stack_a);
-int		get_min_mov(t_list *stack, int max);
-void	_push(t_list **stack_a, t_list **stack_b, int max );
-void	mov_to_a(t_list **stack_a, t_list **stack_b);
-void	sort_any(t_list **stack_a, t_list **stack_b);
 int		ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
 int		ft_strcmp(const char *s1, const char *s2);
 void	my_free(char **s);
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	free_stack(t_list **stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 20:09:10 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 21:17:33 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@ int	if_sort(t_list *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (0);
-}
-
-void	free_stack(t_list **stack)
-{
-	t_list	*tmp;
-
-	while ((*stack))
-	{
-		tmp = (*stack)->next;
-		free((*stack));
-		(*stack) = tmp;
-	}
-	(*stack) = NULL;
 }
 
 void	which_sort(t_list **stack_a, t_list	**stack_b)

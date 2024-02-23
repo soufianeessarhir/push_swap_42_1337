@@ -10,6 +10,7 @@ SOURCES = main.c\
 		rev_rotates.c\
 		pushs.c\
 		utils3.c\
+		utils4.c\
 		sorting_under_5.c\
 		sort_any.c\
 		indexing.c\
@@ -18,14 +19,12 @@ CH_SOURCES = checker.c\
 			utils.c\
 			utils1.c\
 			utils2.c\
+			utils4.c\
 			parcing.c\
 			ch_mov.c\
 			ch_mov1.c\
 			ch_mov2.c\
 			utils3.c\
-			sorting_under_5.c\
-			sort_any.c\
-			indexing.c\
 			get_next_line.c\
 
 OBJECTS = $(SOURCES:.c=.o)

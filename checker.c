@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:12:06 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 21:33:17 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,6 @@ void	check_sort_actions(t_list **stack_a, t_list **stack_b)
 		free(val);
 		val = get_next_line(0);
 	}
-}
-
-static	void	free_stack(t_list **stack)
-{
-	t_list	*tmp;
-
-	while ((*stack))
-	{
-		tmp = (*stack)->next;
-		free((*stack));
-		(*stack) = tmp;
-	}
-	(*stack) = NULL;
 }
 
 int	main(int ac, char **av)
