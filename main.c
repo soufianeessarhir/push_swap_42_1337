@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:00 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:59:31 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 20:09:10 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,21 @@ int	main(int ac, char	**av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (parcing(ac, av, &stack_a) == 0)
+	if (ac != 1)
 	{
-		write(1, "Error\n", 6);
-		free_stack(&stack_a);
-		return (0);
-	}
-	indexing(&stack_a);
-	if (if_sort(stack_a))
-	{
-		which_sort(&stack_a, &stack_b);
-		free_stack(&stack_b);
-		free_stack(&stack_a);
+		if (parcing(ac, av, &stack_a) == 0)
+		{
+			write(1, "Error\n", 6);
+			free_stack(&stack_a);
+			return (0);
+		}
+		indexing(&stack_a);
+		if (if_sort(stack_a))
+		{
+			which_sort(&stack_a, &stack_b);
+			free_stack(&stack_b);
+			free_stack(&stack_a);
+		}
 	}
 	return (0);
 }

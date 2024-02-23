@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 19:23:26 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:52:16 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	sort_any(t_list **stack_a,	t_list **stack_b)
 	int	c;
 
 	c = ft_lstsize(*stack_a) - 5;
-	a = (ft_lstsize(*stack_a) / 9);
+	a = (ft_lstsize(*stack_a) / 8);
 	if (ft_lstsize(*stack_a) <= 100)
 		a = ft_lstsize(*stack_a) / 5;
 	pb_rb(stack_a, stack_b, a, c);
