@@ -6,12 +6,12 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:52:54 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 20:27:31 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:16:59 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "checker.h"
+
 char	*my_strjoin(char const *s1, char const *s2)
 {
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 04:00:02 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 14:19:13 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:54:16 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,41 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+int	check_sp_nl(int ac, char **av)
 {
-	if (!lst || !del)
-		return ;
-	if (!lst)
-		return ;
-	free(lst);
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		if (av[i][0] == '\0')
+			return (0);
+		while (av[i][j])
+		{
+			while (av[i][j] == ' ')
+				j++;
+			if (av[i][j] == '\0')
+				return (0);
+			if (av[i][j] != ' ')
+				break ;
+		}
+		i++;
+	}
+	return (1);
+}
+int	get_pos(t_list *stack, int nb)
+{
+	int	pos;
+
+	pos = 0;
+	while (stack)
+	{
+		if (nb == stack->index)
+			break ;
+		stack = stack->next;
+		pos++;
+	}
+	return (pos);
 }
