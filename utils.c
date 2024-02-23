@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:50 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/11 04:54:51 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:39:47 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_countwords(char const *s, char c)
 	return (len);
 }
 
-static void	my_free(char **s)
+void	my_free(char **s)
 {
 	int	i;
 
@@ -90,5 +90,6 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	str = ft_strfill(s, c, ft_countwords(s, c));
+	free((void *)s);
 	return (str);
 }

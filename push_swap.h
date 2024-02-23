@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/21 18:23:32 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:15:07 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int 	get_min_mov(t_list *stack,int  max);
 void 	_push(t_list **stack_a,t_list **stack_b,int max );
 void 	mov_to_a(t_list **stack_a,t_list **stack_b);
 void 	sort_any(t_list **stack_a, t_list **stack_b);
-
+void	my_free(char **s);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
 #endif

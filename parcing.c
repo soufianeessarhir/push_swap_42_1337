@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:54:24 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:33:12 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:43:10 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,6 @@ int check_dig(char **av)
 	}
 	return (1);
 }
-
-// int is_space(int c)
-// {
-
-// }
 int check_sp_nl(int ac,char **av)
 {
 	int i ;
@@ -98,29 +93,33 @@ int check_dup(char **av)
 }
 int parcing(int ac, char **av, t_list **stack_a)
 {
-	
 	int i;
 
 	i = 0;
 	if (check_sp_nl(ac,av) == 0)
 		return (0);
 	av = splitargs(ac,av);
-	i = 0;
 	while (av[i])
 	{
 		if (ft_sing_range(av[i]) == 0)
-			return (0);
+		{
+			my_free(av);
+			return 0;
+		}
 		i++;
 	}
 	if (check_dup(av) == 0 || check_dig(av) == 0)
+	{
+		my_free(av);
 		return 0;
+	}
 	i = 0;
+
 	while (av[i])
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i]),-1));
 		i++;
 	}
-	
-	
+	my_free(av);
 	return 1;
 }

@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:55:13 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:25:25 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:24:02 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
+	int		j;
 	char	*newstr;
 
 	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	newstr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	j = 0;
+	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!newstr)
 		return (NULL);
-	while (*s1)
+	while (s1[i])
 	{
-		newstr[i] = *s1++; 
+		newstr[i] = s1[i];
 		i++;
 	}
-	while (*s2)
+	while (s2[j])
 	{
-		newstr[i] = *s2++;
-		i++;
+		newstr[i + j] = s2[j];
+		j++;
 	}
-	*(newstr + i) = '\0';
+	newstr[i + j] = '\0';
+	free((void *)s1);
+	s1 = NULL;
 	return (newstr);
 }
 t_list	*ft_lstnew(int content ,int index)

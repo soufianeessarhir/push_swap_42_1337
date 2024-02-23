@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 04:59:19 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 20:19:55 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:14:55 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,9 @@ void 	sort_any(t_list **stack_a, t_list **stack_b);
 int		ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
 int		ft_strcmp(const char *s1, const char *s2);
+void	my_free(char **s);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+
 
 #endif

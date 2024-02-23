@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/22 22:20:32 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:36:35 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int main(int ac, char **av)
 	
 	if (parcing(ac, av, &stack_a) == 0)
 	{
+		ft_lstclear(&stack_a,free);
 		write(1, "Error\n",6);
 		return (0);
 	}
@@ -96,5 +97,7 @@ int main(int ac, char **av)
 		write(1,"KO\n", 3);
 	else
 		write(1,"OK\n", 3);
+	ft_lstclear(&stack_a,free);
+	ft_lstclear(&stack_b,free);
 	return 0;
 }
