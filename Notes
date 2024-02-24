@@ -1,0 +1,21 @@
+./checker 11
+pb
+rra 
+rrb
+[1]    52065 segmentation fault  ./checker 11
+
+
+---------
+
+./checker 11 99
+pb
+pb
+ra
+[1]    52774 segmentation fault  ./checker 11 99
+
+
+-----------
+
+ ./checker 11 77
+pb
+ 

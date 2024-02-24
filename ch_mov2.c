@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 06:00:17 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 18:05:23 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:27:48 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ void	rra(t_list	**stack_a)
 	t_list	*prev;
 
 	head = (*stack_a);
-	if (!(ft_lstsize(*stack_a) > 1))
-		return ;
-	while ((*stack_a)->next)
+	if ((*stack_a) && (*stack_a)->next)
 	{
-		prev = (*stack_a);
-		(*stack_a) = (*stack_a)->next;
+		while ((*stack_a)->next)
+		{
+			prev = (*stack_a);
+			(*stack_a) = (*stack_a)->next;
+		}
+		tmp = (*stack_a)->content;
+		tmp1 = (*stack_a)->index;
+		ft_lstadd_front(&head, ft_lstnew(tmp, tmp1));
+		free((*stack_a));
+		prev->next = NULL;
+		(*stack_a) = head;
 	}
-	tmp = (*stack_a)->content;
-	tmp1 = (*stack_a)->index;
-	ft_lstadd_front(&head, ft_lstnew(tmp, tmp1));
-	free((*stack_a));
-	prev->next = NULL;
-	(*stack_a) = head;
 }
 
 void	rrb(t_list	**stack_b)
@@ -43,19 +44,20 @@ void	rrb(t_list	**stack_b)
 	t_list	*prev;
 
 	head = (*stack_b);
-	if (!(ft_lstsize(*stack_b) > 1))
-		return ;
-	while ((*stack_b)->next)
+	if ((*stack_b) && (*stack_b)->next)
 	{
-		prev = (*stack_b);
-		(*stack_b) = (*stack_b)->next;
+		while ((*stack_b)->next)
+		{
+			prev = (*stack_b);
+			(*stack_b) = (*stack_b)->next;
+		}
+		tmp = (*stack_b)->content;
+		tmp1 = (*stack_b)->index;
+		free((*stack_b));
+		prev->next = NULL;
+		ft_lstadd_front(&head, ft_lstnew(tmp, tmp1));
+		(*stack_b) = head;
 	}
-	tmp = (*stack_b)->content;
-	tmp1 = (*stack_b)->index;
-	free((*stack_b));
-	prev->next = NULL;
-	ft_lstadd_front(&head, ft_lstnew(tmp, tmp1));
-	(*stack_b) = head;
 }
 
 void	rrr(t_list	**stack_a, t_list	**stack_b)

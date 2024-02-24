@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:17:46 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 21:33:17 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:43:37 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@ void	actions(t_list	**stack_a, t_list **stack_b, char *val)
 
 int	if_sort(t_list *stack_a)
 {
-	while (stack_a->next)
+	if ((stack_a))
 	{
-		if (stack_a->content > stack_a->next->content)
-			return (1);
-		stack_a = stack_a->next;
+		while (stack_a->next)
+		{
+			if (stack_a->content > stack_a->next->content)
+				return (1);
+			stack_a = stack_a->next;
+		}
 	}
 	return (0);
 }
@@ -83,21 +86,24 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (parcing(ac, av, &stack_a) == 0)
+	if (ac > 1)
 	{
+		if (parcing(ac, av, &stack_a) == 0)
+		{
+			free_stack(&stack_a);
+			write(1, "Error\n", 6);
+			return (0);
+		}
+		if (!(stack_a))
+			return (0);
+		else
+			check_sort_actions(&stack_a, &stack_b);
+		if (if_sort(stack_a) || ft_lstsize(stack_b))
+			write(1, "KO\n", 3);
+		else
+			write(1, "OK\n", 3);
 		free_stack(&stack_a);
-		write(1, "Error\n", 6);
-		return (0);
+		free_stack(&stack_b);
 	}
-	if (!(stack_a))
-		return (0);
-	else
-		check_sort_actions(&stack_a, &stack_b);
-	if (if_sort(stack_a) || ft_lstsize(stack_b) != 0)
-		write(1, "KO\n", 3);
-	else
-		write(1, "OK\n", 3);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
 	return (0);
 }
