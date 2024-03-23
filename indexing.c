@@ -42,11 +42,10 @@ void	indexing(t_list **stack_a)
 	int		i;
 	int		min;
 	t_list	*tmp;
-	t_list	*tmp1;
+
 
 	i = 1;
 	tmp = (*stack_a);
-	tmp1 = (*stack_a);
 	(*stack_a) = tmp;
 	while (i <= ft_lstsize(*stack_a))
 	{
