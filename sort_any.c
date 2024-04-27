@@ -6,7 +6,7 @@
 /*   By: sessarhi <sessarhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 08:32:03 by sessarhi          #+#    #+#             */
-/*   Updated: 2024/02/23 19:52:16 by sessarhi         ###   ########.fr       */
+/*   Updated: 2024/04/27 09:01:48 by sessarhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,11 @@ void	pb_rb(t_list **stack_a, t_list **stack_b, int a, int c)
 			if ((*stack_b)->index > (j - (a / 2)))
 				rb(stack_b);
 			if (i == j)
+			{
+				if (a > 3)
+					a--;
 				j += a;
+			}
 		}
 		else
 			ra(stack_a);
