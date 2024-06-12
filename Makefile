@@ -15,17 +15,17 @@ SOURCES = main.c\
 		sort_any.c\
 		indexing.c\
 
-CH_SOURCES = checker.c\
-			utils.c\
-			utils1.c\
-			utils2.c\
-			utils4.c\
-			parcing.c\
-			ch_mov.c\
-			ch_mov1.c\
-			ch_mov2.c\
-			utils3.c\
-			get_next_line.c\
+CH_SOURCES = checker_bonus.c\
+			utils_bonus.c\
+			utils1_bonus.c\
+			utils2_bonus.c\
+			utils4_bonus.c\
+			parcing_bonus.c\
+			ch_mov_bonus.c\
+			ch_mov1_bonus.c\
+			ch_mov2_bonus.c\
+			utils3_bonus.c\
+			get_next_line_bonus.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 CH_OBJECTS = $(CH_SOURCES:.c=.o)
@@ -35,16 +35,18 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) push_swap.h checker.h
+$(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
-bonus:$(CHECKER)
-
-$(CHECKER): $(CH_OBJECTS) push_swap.h checker.h
+$(CHECKER): $(CH_OBJECTS) 
 	$(CC) $(CFLAGS) $(CH_OBJECTS) -o $(CHECKER)
-
-%.o: %.c push_swap.h checker.h
+%.o: %.c push_swap.h checker_bonus.h
 	$(CC) $(CFLAGS) -c $< -o $@
+
+%_bonus.o: %_bonus.c 
+	$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(CHECKER) 
+
 
 clean:
 	$(RM) $(OBJECTS) $(CH_OBJECTS)
